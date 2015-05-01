@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <script>
+            var qcount = 1;
+            var acount = 1;
+            
+            function qGenerate( divName ) {
+                var newdiv = document.createElement( 'div' );
+                newdiv.innerHTML = "Question " + ( qcount + 1 ) + "<br><input type='text' name='qInputs[]'>";
+                qcount++;
+                document.getElementById( divName ).appendChild( newdiv );
+            }
+
+            function aInput( divName ) {
+                var newdiv = document.createElement( 'div' );
+                newdiv.innerHTML = "Answer " + ( acount + 1 ) + "<br><input type='text' name='aInputs[]'>";
+                acount++;
+                document.getElementById( divName ).appendChild( newdiv );
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="qgen">
+            Question 1<br><input type="text" name="qInputs[]">
+        </div>
+        
+        <div id="agen">
+            Answer 1<br><input type="text" name="aInputs[]">
+        </div>
+        
+        <form method="POST">
+            <input type="button" value="add" onClick="qGenerate( 'qgen' )">
+            <input type="button" value="add" onClick="aInput( 'agen' )">
+        </form>
+    </body>
+    
+</html>
